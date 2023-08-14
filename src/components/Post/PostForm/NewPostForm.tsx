@@ -24,7 +24,7 @@ import { IoDocumentText, IoImageOutline } from "react-icons/io5";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { firestore, storage } from "../../../firebase/clientApp";
-import TabItem from "./TabItem";
+import TabItemComponent from "./TabItem";
 import { postState } from "../../../atoms/postsAtom";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import TextInputs from "./TextInputs";
@@ -53,10 +53,10 @@ const formTabs = [
   },
 ];
 
-// export type LocalTabItem = {
-//   title: string;
-//   icon: typeof Icon.arguments;
-// };
+export type TabItem = {
+  title: string;
+  icon: typeof Icon.arguments;
+};
 
 type NewPostFormProps = {
   communityId: string;
@@ -150,7 +150,7 @@ const NewPostForm: React.FC<NewPostFormProps> = ({
     <Flex direction="column" bg="white" borderRadius={4} mt={2}>
       <Flex width="100%">
         {formTabs.map((item, index) => (
-          <TabItem
+          <TabItemComponent
             key={index}
             item={item}
             selected={item.title === selectedTab}
