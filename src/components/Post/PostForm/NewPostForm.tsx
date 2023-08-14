@@ -53,10 +53,10 @@ const formTabs = [
   },
 ];
 
-export type LocalTabItem = {
-  title: string;
-  icon: typeof Icon.arguments;
-};
+// export type LocalTabItem = {
+//   title: string;
+//   icon: typeof Icon.arguments;
+// };
 
 type NewPostFormProps = {
   communityId: string;
