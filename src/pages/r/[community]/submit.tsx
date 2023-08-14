@@ -19,10 +19,6 @@ const CreateCommmunityPostPage: NextPage = () => {
   const communityStateValue = useRecoilValue(communityState);
   const { loading } = useCommunityData();
 
-  /**
-   * Not sure why not working
-   * Attempting to redirect user if not authenticated
-   */
   useEffect(() => {
     if (!user && !loadingUser && communityStateValue.currentCommunity.id) {
       router.push(`/r/${communityStateValue.currentCommunity.id}`);

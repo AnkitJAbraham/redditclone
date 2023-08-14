@@ -3,7 +3,9 @@ import React from "react";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase/clientApp";
 
-type OAuthButtonsProps = {};
+type OAuthButtonsProps = {
+  children?: React.ReactNode;
+};
 
 const OAuthButtons: React.FC<OAuthButtonsProps> = () => {
   const [signInWithGoogle, _, loading, error] = useSignInWithGoogle(auth);
@@ -16,13 +18,13 @@ const OAuthButtons: React.FC<OAuthButtonsProps> = () => {
         onClick={() => signInWithGoogle()}
         isLoading={loading}
       >
-        <Image src="/images/googlelogo.png" height="20px" mr={4} />
+        <Image src="/images/googlelogo.png" height="20px" mr={4} alt="google_logo"/>
         Continue with Google
       </Button>
       <Button variant="oauth">Some Other Provider</Button>
       {error && (
         <Text textAlign="center" fontSize="10pt" color="red" mt={2}>
-          {error}
+          {error.message}
         </Text>
       )}
     </Flex>

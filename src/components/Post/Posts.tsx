@@ -190,36 +190,7 @@ const Posts: React.FC<PostsProps> = ({
     }
 
     getPosts();
-    /**
-     * REAL-TIME POST LISTENER
-     * IMPLEMENT AT FIRST THEN CHANGE TO POSTS CACHE
-     *
-     * UPDATE - MIGHT KEEP THIS AS CACHE IS TOO COMPLICATED
-     *
-     * LATEST UPDATE - FOUND SOLUTION THAT MEETS IN THE MIDDLE
-     * CACHE POST DATA, BUT REMOVE POSTVOTES CACHE AND HAVE
-     * REAL-TIME LISTENER ON POSTVOTES
-     */
-    // const postsQuery = query(
-    //   collection(firestore, "posts"),
-    //   where("communityId", "==", communityData.id),
-    //   orderBy("createdAt", "desc")
-    // );
-    // const unsubscribe = onSnapshot(postsQuery, (querySnaption) => {
-    //   const posts = querySnaption.docs.map((post) => ({
-    //     id: post.id,
-    //     ...post.data(),
-    //   }));
-    //   setPostItems((prev) => ({
-    //     ...prev,
-    //     posts: posts as [],
-    //   }));
-    //   setLoading(false);
-    // });
-
-    // // Remove real-time listener on component dismount
-    // return () => unsubscribe();
-  }, [communityData, postStateValue.postUpdateRequired]);
+  }, [communityData, postStateValue.postUpdateRequired, postStateValue.postsCache]);
 
   const getPosts = async () => {
     console.log("WE ARE GETTING POSTS!!!");

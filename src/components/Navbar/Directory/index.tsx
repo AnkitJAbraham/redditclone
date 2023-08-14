@@ -45,6 +45,7 @@ const Directory: React.FC = () => {
                       boxSize="24px"
                       src={directoryState.selectedMenuItem.imageURL}
                       mr={2}
+                      alt="navbar_directory_index"
                     />
                   ) : (
                     <Icon

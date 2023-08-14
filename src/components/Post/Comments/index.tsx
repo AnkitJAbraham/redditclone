@@ -166,7 +166,7 @@ const Comments: React.FC<CommentsProps> = ({
     console.log("HERE IS SELECTED POST", selectedPost.id);
 
     getPostComments();
-  }, []);
+  }, [selectedPost.id]);
 
   return (
     <Box bg="white" p={2} borderRadius="0px 0px 4px 4px">
