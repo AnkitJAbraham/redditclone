@@ -4,8 +4,8 @@ import React from "react";
 const Main: React.FC<{}> = () => {
   return (
     <div>
-      Here is main
-      <Link href="/r/notShadeesCommunity">hehe</Link>
+      Sample Main Page
+      <Link href="/r/testcommunity">Link to test community</Link>
     </div>
   );
 };

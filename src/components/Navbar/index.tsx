@@ -3,6 +3,7 @@ import { Box, Flex, Image } from "@chakra-ui/react";
 import { User } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSetRecoilState } from "recoil";
+import { Link, chakra } from "@chakra-ui/react";
 import {
   defaultMenuItem,
   directoryMenuState,
@@ -34,16 +35,33 @@ const Navbar: React.FC = () => {
         cursor="pointer"
         onClick={() => onSelectMenuItem(defaultMenuItem)}
       >
-        <Image src="/images/redditFace.svg" height="30px" alt="reddit_face_one"/>
+        <Image src="/images/logo_image_1.jpg" height="30px" alt="my_logo" />
         <Image
           display={{ base: "none", md: "unset" }}
-          src="/images/redditText.svg"
-          height="46px"
-          alt="reddit_face_two"
+          src="/images/genesis.png"
+          height="40px"
+          alt="genesis_text"
+          ml="4"
         />
       </Flex>
+
+      <Flex align="center" mx="4">
+        <chakra.h1 fontWeight={"semibold"} color="green.300">
+          A RedditClone - Developed by{" "}
+          <Link
+            href="#" // Replace with portfolio website URL
+            fontWeight="bold"
+            color="cyan.400"
+          >
+            Ankit John
+          </Link>
+        </chakra.h1>
+      </Flex>
+
       {user && <Directory />}
+
       <SearchInput user={user as User} />
+
       <RightContent user={user as User} />
     </Flex>
   );
