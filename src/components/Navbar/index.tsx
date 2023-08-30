@@ -46,7 +46,11 @@ const Navbar: React.FC = () => {
       </Flex>
 
       <Flex align="center" mx="4">
-        <chakra.h1 fontWeight={"semibold"} color="green.300">
+        <chakra.h1
+          fontWeight={{ base: "normal", md: "semibold" }}
+          fontSize={{ base: "sm", md: "xl" }}
+          color="green.300"
+        >
           A RedditClone - Developed by{" "}
           <Link
             href="#" // Replace with portfolio website URL
